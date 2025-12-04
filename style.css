@@ -1,0 +1,132 @@
+/* Base styles */
+:root {
+  --bg: #eaf7ea;          /* light green background */
+  --card: #ffffff;        /* card background */
+  --ink: #18331b;         /* dark green text */
+  --muted: #3b6b3f;       /* muted green text */
+  --accent: #81c784;      /* accent green */
+  --ring: rgba(0,0,0,0.06);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+  background: var(--bg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.sidebar {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px var(--ring), 0 8px 24px var(--ring);
+  position: sticky;
+  top: 1.5rem;
+  align-self: start;
+  text-align: center;
+}
+
+.photo {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 1px 3px var(--ring), 0 8px 24px var(--ring);
+}
+
+.name {
+  font-size: 1.75rem;
+  margin: 0.25rem 0 0.25rem;
+}
+
+.title {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.content {
+  min-width: 0;
+}
+
+.workshops > h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.workshop-card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px var(--ring), 0 8px 24px var(--ring);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.workshop-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--ring), 0 16px 32px var(--ring);
+}
+
+.workshop-card h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+}
+
+.workshop-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid rgba(0,0,0,0.06);
+  text-align: center;
+  padding: 1rem 1.5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer a {
+  color: var(--ink);
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+.footer a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: static;
+    text-align: center;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
